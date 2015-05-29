@@ -289,7 +289,7 @@ static void sync_one_sb(struct super_block *sb, void *arg)
  * Sync all the data for all the filesystems (called by sys_sync() and
  * emergency sync)
  */
-static void sync_filesystems(int wait)
+void sync_filesystems(int wait)
 {
 	iterate_supers(sync_one_sb, &wait);
 }
@@ -374,7 +374,7 @@ int vfs_fsync_range(struct file *file, loff_t start, loff_t end, int datasync)
 	bool ptr_flag=false;
 #endif	
 
-ifdef CONFIG_DYNAMIC_FSYNC
+#ifdef CONFIG_DYNAMIC_FSYNC
 	if (likely(dyn_fsync_active && !early_suspend_active))
 		return 0;
 	else {
@@ -565,7 +565,7 @@ EXPORT_SYMBOL(generic_write_sync);
 SYSCALL_DEFINE(sync_file_range)(int fd, loff_t offset, loff_t nbytes,
 				unsigned int flags)
 {
-ifdef CONFIG_DYNAMIC_FSYNC
+#ifdef CONFIG_DYNAMIC_FSYNC
 	if (likely(dyn_fsync_active && !early_suspend_active))
 		return 0;
 	else {

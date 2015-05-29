@@ -782,7 +782,7 @@ int mt_cpufreq_cur_load()
 }
 EXPORT_SYMBOL(mt_cpufreq_cur_load);
 
-void hp_set_dynamic_cpu_hotplug_enable(int enable)
+/*void hp_set_dynamic_cpu_hotplug_enable(int enable)
 {
 	mutex_lock(&hp_mutex);
 	dbs_tuners_ins.is_cpu_hotplug_disable = !enable;
@@ -803,7 +803,7 @@ void hp_based_cpu_num(int num)
 	dbs_tuners_ins.cpu_num_base = num;
 	mutex_unlock(&hp_mutex);
 }
-EXPORT_SYMBOL(hp_based_cpu_num);
+EXPORT_SYMBOL(hp_based_cpu_num);*/
 
 #ifdef CONFIG_SMP
 

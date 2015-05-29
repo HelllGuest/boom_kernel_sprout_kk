@@ -109,8 +109,8 @@ static void mt_hotplug_mechanism_early_suspend(struct early_suspend *h)
     if (!g_enable_cpu_rush_boost)
     {
     #ifdef CONFIG_CPU_FREQ_GOV_HOTPLUG
-        g_prev_cpu_rush_boost_enable = hp_get_cpu_rush_boost_enable();
-        hp_set_cpu_rush_boost_enable(0);
+     //   g_prev_cpu_rush_boost_enable = hp_get_cpu_rush_boost_enable();
+     //   hp_set_cpu_rush_boost_enable(0);
     #endif //#ifdef CONFIG_CPU_FREQ_GOV_HOTPLUG
     }
     
@@ -137,7 +137,7 @@ static void mt_hotplug_mechanism_late_resume(struct early_suspend *h)
     if (!g_enable_cpu_rush_boost)
     {
     #ifdef CONFIG_CPU_FREQ_GOV_HOTPLUG
-        hp_set_cpu_rush_boost_enable(g_prev_cpu_rush_boost_enable);
+     //   hp_set_cpu_rush_boost_enable(g_prev_cpu_rush_boost_enable);
     #endif //#ifdef CONFIG_CPU_FREQ_GOV_HOTPLUG
     }
     
@@ -175,8 +175,8 @@ static int mt_hotplug_mechanism_suspend(struct platform_device *pdev, pm_message
     if (!g_enable_dynamic_cpu_hotplug_at_suspend)
     {
     #ifdef CONFIG_CPU_FREQ_GOV_HOTPLUG
-        g_prev_dynamic_cpu_hotplug_enable = hp_get_dynamic_cpu_hotplug_enable();
-        hp_set_dynamic_cpu_hotplug_enable(0);
+    //    g_prev_dynamic_cpu_hotplug_enable = hp_get_dynamic_cpu_hotplug_enable();
+     //   hp_set_dynamic_cpu_hotplug_enable(0);
     #endif //#ifdef CONFIG_CPU_FREQ_GOV_HOTPLUG
     }
     
@@ -198,7 +198,7 @@ static int mt_hotplug_mechanism_resume(struct platform_device *pdev)
     if (!g_enable_dynamic_cpu_hotplug_at_suspend)
     {
     #ifdef CONFIG_CPU_FREQ_GOV_HOTPLUG
-        hp_set_dynamic_cpu_hotplug_enable(g_prev_dynamic_cpu_hotplug_enable);
+    //    hp_set_dynamic_cpu_hotplug_enable(g_prev_dynamic_cpu_hotplug_enable);
     #endif //#ifdef CONFIG_CPU_FREQ_GOV_HOTPLUG
     }
     
@@ -295,9 +295,9 @@ static int mt_hotplug_mechanism_read_test1(char *buf, char **start, off_t off, i
     p += sprintf(p, "%d\n", g_test1);
     *eof = 1;
     
-    HOTPLUG_INFO("[power/hotplug] thermal_debug_1 (%d)(%d)(%d)(%d)(%ld)(%ld)\n", g_trigger_hp_work, g_tlp_avg_average, g_tlp_avg_current,
-        g_cpus_sum_load_current, g_cpu_up_sum_load, g_cpu_down_sum_load);
-    HOTPLUG_INFO("[power/hotplug] thermal_debug_2 (%d)(%d)(%d)(%d)\n", g_cpu_up_count, g_cpu_up_load_index, g_cpu_down_count, g_cpu_down_load_index);
+    //HOTPLUG_INFO("[power/hotplug] thermal_debug_1 (%d)(%d)(%d)(%d)(%ld)(%ld)\n", g_trigger_hp_work, g_tlp_avg_average, g_tlp_avg_current,
+        //g_cpus_sum_load_current, g_cpu_up_sum_load, g_cpu_down_sum_load);
+    //HOTPLUG_INFO("[power/hotplug] thermal_debug_2 (%d)(%d)(%d)(%d)\n", g_cpu_up_count, g_cpu_up_load_index, g_cpu_down_count, g_cpu_down_load_index);
 	
     return p - buf;
 }
